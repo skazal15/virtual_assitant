@@ -22,6 +22,9 @@ os.environ['BARD_API_KEY'] = "WgiAqPKTBRsMVbfqkHAaRmeXCfNxlUtBvCmmGl0RxfPFlUIK9B
 bot = telegram.Bot(token=TOKEN_BOT)
 #openai.api_key = TOKEN_OPENAPI
 
+bard = os.environ.get('BARD_API_KEY')
+chatbot = Chatbot(bard)
+
 def analysis(SAHAM):
     saham = yf.download(SAHAM, period='max')
     saham = saham.dropna()
@@ -165,8 +168,6 @@ def generate_response(input_text):
         return Crypto
         
     else:
-        bard = os.environ.get('BARD_API_KEY')
-        chatbot = Chatbot(bard)
         answer = chatbot.ask(input_text)['content']
         return answer
 
