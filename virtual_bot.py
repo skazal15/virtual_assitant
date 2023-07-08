@@ -17,7 +17,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, Updater
 
 TOKEN_BOT = "1660877363:AAFd3WlLFfSMm0Hr0FR0aT6ZEpFFuF_Dbc0"
 #TOKEN_OPENAPI = "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"
-os.environ['BARD_API_KEY'] = "WgiAqPKTBRsMVbfqkHAaRmeXCfNxlUtBvCmmGl0RxfPFlUIK9BLym7gxsYEDzdFQyFL-aw."
+os.environ['BARD_API_KEY'] = "YAjsA0S803UetaL5_TGhxR_fkLo5_30nWe4ZhB-4gfdU6fEQRtYPf_Xx69i5g2yiQ9eIYg."
 
 bot = telegram.Bot(token=TOKEN_BOT)
 #openai.api_key = TOKEN_OPENAPI
