@@ -5,8 +5,8 @@ from statsmodels.tsa.arima.model import ARIMA
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential
-from keras.layers import LSTM, Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
 from datetime import date
 #import openai
 from Bard import Chatbot
