@@ -9,7 +9,7 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 from datetime import date
 #import openai
-from bardapi import Bard
+from Bard import Chatbot
 import telegram
 import time
 import os
@@ -17,7 +17,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, Updater
 
 TOKEN_BOT = "1660877363:AAFd3WlLFfSMm0Hr0FR0aT6ZEpFFuF_Dbc0"
 #TOKEN_OPENAPI = "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"
-os.environ['_BARD_API_KEY'] = "WgiAqPKTBRsMVbfqkHAaRmeXCfNxlUtBvCmmGl0RxfPFlUIK9BLym7gxsYEDzdFQyFL-aw."
+os.environ['BARD_API_KEY'] = "WgiAqPKTBRsMVbfqkHAaRmeXCfNxlUtBvCmmGl0RxfPFlUIK9BLym7gxsYEDzdFQyFL-aw."
 
 bot = telegram.Bot(token=TOKEN_BOT)
 #openai.api_key = TOKEN_OPENAPI
@@ -165,15 +165,9 @@ def generate_response(input_text):
         return Crypto
         
     else:
-        #response = openai.Completion.create(
-        #engine="davinci",
-        #prompt=input_text,
-        #max_tokens=150,
-        #n=1,
-        #stop=None,
-        #temperature=0.7,
-        #)
-        answer = Bard().get_answer(input_text)['content']
+        bard = os.environ.get('BARD_API_KEY')
+        chatbot = Chatbot(bard)
+        answer = chatbot.ask(input_text)['content']
         return answer
 
 
